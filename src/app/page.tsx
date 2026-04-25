@@ -7,113 +7,128 @@ import PricingSection from "@/components/PricingSection";
 import ProblemStatementSection from "@/components/ProblemStatementSection";
 
 export default function Home() {
-  const navItems = ["Home", "Services", "Project", "About Us"];
-
-  const metrics = [
-    { value: "12 +", label: "Years of\nExperience" },
-    { value: "83K +", label: "Completed\nProject" },
-    { value: "4.2K +", label: "Trusted\nCompanies" },
+  const navItems = [
+    { label: "Home", href: "#" },
+    { label: "Problem", href: "#problem" },
+    { label: "Features", href: "#features" },
+    { label: "Team", href: "#team" },
+    { label: "Pricing", href: "#pricing" },
   ];
 
+  const metrics = [
+    { value: "120 +", label: "Startups" },
+    { value: "45 +", label: "Investors" },
+    { value: "80 +", label: "Mentors" },
+  ];
 
   return (
-    <div className="w-full bg-white min-h-screen">
-      {/* Top Hero Background Section */}
-      <div className="bg-[#060b14] text-white pt-8 pb-[280px] px-6 md:px-12 lg:px-24 rounded-b-3xl relative overflow-hidden">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#6ed7ff]/15 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#5c7bfc]/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+    <div className="w-full min-h-screen">
+      {/* ═══════ WHITE TOP HERO SECTION ═══════ */}
+      <div className="bg-white text-[#0b192c] pt-8 pb-[40px] relative overflow-hidden">
+        {/* Subtle decorative gradients */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#7ed7ff]/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#0b192c]/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
 
-        {/* Navbar */}
-        <nav className="flex items-center justify-between mb-24 md:mb-32 max-w-7xl mx-auto relative z-10">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
+        {/* ── Navbar ── */}
+        <nav className="relative z-10 mb-10 md:mb-14 flex items-center justify-between pl-6 pr-6 md:pl-8 md:pr-12 lg:pl-10 lg:pr-24">
+          {/* Logo — pushed further left */}
+          <div className="flex w-45 items-center gap-3 -ml-1">
             <Image
               src="/logo-nobgcopy.webp"
               alt="XENTRO"
               width={180}
               height={72}
               priority
-              className="h-11 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
-          {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-8 lg:gap-10 text-[15px]">
+          {/* Nav Links — centered */}
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-[15px] md:flex lg:gap-10">
             {navItems.map((item) => (
-              <div key={item} className="flex flex-col items-center">
+              <div key={item.label} className="flex flex-col items-center">
                 <a
-                  href="#"
-                  className={`transition-colors hover:text-white pb-1 ${item === "Home" ? "text-white font-medium" : "text-gray-300"}`}
+                  href={item.href}
+                  className={`transition-colors hover:text-[#0b192c] pb-1 ${item.label === "Home" ? "text-[#0b192c] font-semibold" : "text-[#0b192c]/60"}`}
                 >
-                  {item}
+                  {item.label}
                 </a>
-                {item === "Home" && (
-                  <div className="w-4 h-[3px] bg-teal-accent rounded-full -mt-1"></div>
+                {item.label === "Home" && (
+                  <div className="w-5 h-[3px] bg-[#7ed7ff] rounded-full -mt-0.5"></div>
                 )}
               </div>
             ))}
           </div>
 
-          {/* Right Buttons */}
-          <div className="hidden sm:flex items-center gap-4 text-[13px] font-semibold">
-            <a href="#pricing" className="bg-teal-accent text-[#031018] px-6 py-2.5 hover:bg-[#93e5ff] transition-colors rounded-lg">
+          {/* Right Button */}
+          <div className="hidden w-45 items-center justify-end text-[13px] font-semibold sm:flex">
+              <a href="#pricing" className="bg-[#071829] text-white px-6 py-2.5 hover:bg-[#0d2744] transition-colors rounded-lg">
               Get Started
-            </a>
-            <a href="#features" className="border border-gray-500 text-white px-6 py-2.5 hover:bg-white/10 transition-colors rounded-lg">
-              Let&apos;s Talk
             </a>
           </div>
         </nav>
 
-        {/* Hero Content */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-8 max-w-[1100px] mx-auto relative z-10">
-          {/* Left Hero */}
-          <div className="flex-[1.2]">
-            <h1 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5rem] font-bold leading-[1.05] tracking-[-0.02em] mb-4">
-              We Are <span className="text-teal-accent tracking-normal">XENTRO</span>
+        {/* ── Hero Content — two columns side by side ── */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_0.85fr] gap-8 max-w-[1100px] mx-auto px-6 md:px-12 lg:px-10 relative z-10">
+          {/* Left Hero — Main headline */}
+          <div>
+            <h1 className="text-[3.2rem] sm:text-[4.2rem] lg:text-[4.8rem] font-bold leading-[1.08] tracking-[-0.02em] mb-4">
+              Your Idea
+              <br />
+              Deserves A{" "}
+                <span className="text-[#071829]">Real</span>
+              <br />
+              Shot
             </h1>
-            <div className="flex items-center gap-4 lg:gap-6 mt-4">
-              <div className="flex flex-col border-r border-gray-600/60 pr-4 lg:pr-6 h-full py-1">
-                <span className="text-[11px] text-gray-400 font-medium">Established</span>
+            <div className="flex items-center gap-4 lg:gap-6 mt-6">
+              <div className="flex flex-col border-r border-[#0b192c]/20 pr-4 lg:pr-6 h-full py-1">
+                <span className="text-[11px] text-[#0b192c]/50 font-medium">Establish</span>
                 <span className="text-xl lg:text-2xl font-bold mt-1">2026</span>
               </div>
-              <h1 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5rem] font-bold leading-none tracking-[-0.02em]">
+              <h2 className="whitespace-nowrap text-[2.8rem] sm:text-[3.5rem] lg:text-[4rem] font-semibold leading-none tracking-[-0.02em]">
                 Digital Ecosystem
-              </h1>
+              </h2>
             </div>
           </div>
 
-          {/* Right Hero */}
-          <div className="flex-[1] lg:pl-16 lg:border-l border-gray-700/60 pt-6 pb-2 flex flex-col justify-between self-stretch">
-            <p className="text-gray-300 text-[15px] leading-relaxed mb-6 lg:mb-0 max-w-[340px]">
+          {/* Right Hero — Description + metrics */}
+          <div className="md:pl-10 md:border-l border-[#0b192c]/15 flex flex-col justify-between py-2">
+            <p className="text-[#0b192c]/65 text-[16px] lg:text-[17px] leading-relaxed mb-6 max-w-[360px]">
               XENTRO is India&apos;s digital entrepreneurship ecosystem built for students, founders, mentors, and investors.
             </p>
-            <div className="flex justify-between items-start gap-6 mt-auto">
-              {metrics.map((metric, i) => (
-                <div key={i}>
-                  <div className="text-xl lg:text-[22px] font-bold mb-1.5 text-white">{metric.value}</div>
-                  <div className="text-[11px] lg:text-xs text-gray-400 leading-relaxed whitespace-pre-line font-medium uppercase tracking-wider">{metric.label}</div>
-                </div>
-              ))}
+            <div>
+              <p className="text-[11px] lg:text-[12px] text-[#0b192c]/40 font-semibold uppercase tracking-[0.15em] mb-3">Daily Active Users</p>
+              <div className="flex items-start gap-7">
+                {metrics.map((metric, i) => (
+                  <div key={i}>
+                    <div className="text-2xl lg:text-[1.75rem] font-bold mb-1 text-[#0b192c]">{metric.value}</div>
+                    <div className="text-[11px] lg:text-xs text-[#0b192c]/50 leading-relaxed font-medium uppercase tracking-wider">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Video / Card Overlay */}
-      <div className="max-w-[1150px] mx-auto px-4 md:px-8 -mt-[220px] relative z-20 w-full mb-16">
-        <div className="w-full aspect-[21/9] rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-gray-900 border-[8px] border-[#0a1523]/50">
-          <iframe
-            className="w-full h-full object-cover"
-            src="https://www.youtube.com/embed/SgmuplXU2iY?si=iXZIy2kpSYMcTnS7&autoplay=0"
-            title="YouTube video player"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+      {/* ═══════ VIDEO — 50/50 split across white & dark blue ═══════ */}
+      <div className="relative z-20" style={{ background: 'linear-gradient(to bottom, white 50%, #0b192c 50%)' }}>
+        <div className="max-w-[1100px] mx-auto px-4 md:px-8 py-6">
+          <div className="w-full aspect-[21/9] rounded-[24px] overflow-hidden shadow-[0_16px_50px_rgba(11,25,44,0.3)] bg-[#0a1523]">
+            <iframe
+              className="w-full h-full object-cover"
+              src="https://www.youtube.com/embed/SgmuplXU2iY?si=iXZIy2kpSYMcTnS7&autoplay=0"
+              title="YouTube video player"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
+
+      {/* Dark blue continues */}
+      <div className="bg-[#0b192c]"></div>
 
       {/* Feature Ribbon */}
       <FeatureRibbon />
@@ -140,8 +155,6 @@ export default function Home() {
           <p>© 2026 XENTRO</p>
         </div>
       </footer>
-
-
     </div>
   );
 }

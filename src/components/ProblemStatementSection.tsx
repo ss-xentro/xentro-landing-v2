@@ -12,7 +12,8 @@ const bodyFont = Open_Sans({
 });
 
 type Bubble = {
-  icon: ReactNode;
+  stat: string;
+  label: string;
   size: number;
   top: string;
   left: string;
@@ -23,13 +24,9 @@ type Bubble = {
 
 const bubbles: Bubble[] = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-8 w-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2.25a6 6 0 00-3.813 10.633c.551.463.938 1.104.938 1.824v.293a2.625 2.625 0 005.25 0v-.293c0-.72.387-1.36.938-1.824A6 6 0 0012 2.25z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 20.25h4.5" />
-      </svg>
-    ),
-    size: 98,
+    stat: "112K+",
+    label: "Startups",
+    size: 132,
     top: "8%",
     left: "56%",
     delay: "-0.8s",
@@ -37,64 +34,45 @@ const bubbles: Bubble[] = [
     highlight: true,
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-8 w-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 16.5l5.25-5.25 3.75 3.75 6-6" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25h3.75V9" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5h15" />
-      </svg>
-    ),
-    size: 80,
+    stat: "1.5K+",
+    label: "Incubators",
+    size: 108,
     top: "20%",
     left: "16%",
     delay: "-2.2s",
     duration: "9.1s",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-8 w-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l1.95 3.95L18.3 7.6l-3.15 3.05.74 4.35L12 12.95 8.11 15l.74-4.35L5.7 7.6l4.35-.65L12 3z" />
-      </svg>
-    ),
-    size: 90,
+    stat: "100+",
+    label: "Unicorns",
+    size: 122,
     top: "34%",
     left: "70%",
     delay: "-1.2s",
     duration: "8.7s",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-8 w-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 2.25l8.25 3.75v5.25c0 5.107-3.482 9.857-8.25 10.5-4.768-.643-8.25-5.393-8.25-10.5V6l8.25-3.75z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 12l1.5 1.5 3-3" />
-      </svg>
-    ),
-    size: 84,
+    stat: "2K+",
+    label: "Investors",
+    size: 114,
     top: "50%",
     left: "24%",
     delay: "-3.1s",
     duration: "10s",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-8 w-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 10.5h16.5M7.5 6.75h9M7.5 14.25h9M12 18.75h.008v.008H12v-.008z" />
-      </svg>
-    ),
-    size: 88,
+    stat: "600+",
+    label: "Cities",
+    size: 118,
     top: "64%",
     left: "74%",
     delay: "-1.7s",
     duration: "9.3s",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} className="h-8 w-8">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18l7.5-12" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 6.75l6.75 1.5-1.5 6.75-6.75-1.5 1.5-6.75z" />
-      </svg>
-    ),
-    size: 82,
+    stat: "₹30B+",
+    label: "Funding",
+    size: 110,
     top: "78%",
     left: "44%",
     delay: "-2.7s",
@@ -121,18 +99,15 @@ export default function ProblemStatementSection() {
             </p>
 
             <h2 className={`${headingFont.className} mb-6 text-[2.05rem] font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.55rem] lg:text-[3.1rem]`}>
-              One ecosystem to launch, build, and grow.
+              "The system wasn't built for you."
             </h2>
 
             <p className={`${bodyFont.className} text-[1.04rem] leading-[1.85] text-white/72 sm:text-[1.15rem]`}>
-              XENTRO helps students and early-stage founders move from idea to execution with guided
-              learning paths, mentor access, startup showcase profiles, and investor visibility in one
-              connected platform.
+              Most Indian students with startup ideas hit the same wall — no roadmap, no mentor, no platform that speaks to where they actually are. Not an IIT. Not in Bangalore. Just someone with an idea and nowhere concrete to go.
             </p>
 
             <p className={`${bodyFont.className} mt-5 text-[0.98rem] leading-[1.8] text-white/58 sm:text-[1.05rem]`}>
-              Built for India&apos;s next generation of entrepreneurs, XENTRO removes scattered tools and
-              replaces them with a focused journey that supports real progress every week.
+              Incubators want traction. Accelerators want revenue. The internet gives you a hundred frameworks but zero direction. Xentro was built to fix exactly that.
             </p>
           </div>
 
@@ -156,9 +131,14 @@ export default function ProblemStatementSection() {
                   animationDuration: bubble.duration,
                 }}
               >
-                <span aria-hidden="true">
-                  {bubble.icon}
-                </span>
+                <div className="flex flex-col items-center justify-center text-center">
+                  <span className={`${headingFont.className} text-[1.1rem] font-bold leading-tight sm:text-[1.2rem]`}>
+                    {bubble.stat}
+                  </span>
+                  <span className="mt-0.5 text-[0.55rem] font-semibold uppercase tracking-wider opacity-70 sm:text-[0.6rem]">
+                    {bubble.label}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

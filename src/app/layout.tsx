@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Inter, Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+});
+
+const redHatDisplay = Red_Hat_Display({
+  variable: "--font-red-hat-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -19,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} font-sans`}>
+    <html lang="en" className={`${inter.variable} ${redHatDisplay.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   );
