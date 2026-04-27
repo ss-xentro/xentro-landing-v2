@@ -3,10 +3,21 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Be_Vietnam_Pro, Montserrat } from "next/font/google";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+const headingFont = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+});
+
+const bodyFont = Be_Vietnam_Pro({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
 type Plan = {
   name: string;
@@ -169,29 +180,26 @@ export default function PricingSection() {
 
   return (
     <section ref={sectionRef} id="pricing" className="relative overflow-hidden py-24 md:py-30">
-      <div className="absolute inset-0 bg-[#060b14]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#3345f6_0%,#2f3ff2_100%)]" />
 
       <div
-        className="absolute inset-0 opacity-100"
-        style={{ background: "rgba(255,255,255,0.02)" }}
-      />
-
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{ background: "rgba(255,255,255,0.01)" }}
+        className="absolute inset-0 opacity-[0.24]"
+        style={{
+          backgroundImage: "repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0 1px, transparent 1px 120px)",
+        }}
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="pricing-header mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <span className="pricing-eyebrow mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-white/60">
+            <span className={`pricing-eyebrow ${bodyFont.className} mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-white/65`}>
               Pricing
             </span>
-            <h2 className="pricing-main-title text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
+            <h2 className={`pricing-main-title ${headingFont.className} text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl`}>
               Plans
             </h2>
           </div>
-          <p className="pricing-desc max-w-xs text-left text-base text-white/75 md:text-right md:text-lg">
+          <p className={`pricing-desc ${bodyFont.className} max-w-xs text-left text-base text-[#d7dcff] md:text-right md:text-lg`}>
             Choose a plan that&apos;s right for you.
             <br />
             Pause or cancel anytime.
@@ -209,7 +217,7 @@ export default function PricingSection() {
             >
               {plan.badge && (
                 <div className="absolute -top-3 right-6 z-10">
-                  <span className="inline-block rounded-full bg-[#a3e635] px-4 py-1 text-xs font-bold text-[#0E0F28]">
+                  <span className="inline-block rounded-full bg-[#a8eb3b] px-4 py-1 text-xs font-bold text-[#0a0d2f]">
                     {plan.badge}
                   </span>
                 </div>
@@ -217,36 +225,36 @@ export default function PricingSection() {
 
               <article
                 className={`relative flex h-full flex-col rounded-2xl p-8 transition-transform duration-300 group-hover:-translate-y-2 ${
-                  plan.highlight ? "bg-white ring-2 ring-[#a3e635]" : "bg-white"
+                  plan.highlight ? "bg-[#f1f3f8] ring-2 ring-[#a8eb3b]" : "bg-[#f1f3f8]"
                 }`}
               >
                 <div className="mb-6">
-                  <h3 className="mb-1 text-xl font-bold text-[#0E0F28]">{plan.name}</h3>
-                  <p className="whitespace-pre-line text-sm text-gray-500">{plan.subtitle}</p>
+                  <h3 className={`${headingFont.className} mb-1 text-xl font-bold text-[#151b3e]`}>{plan.name}</h3>
+                  <p className={`${bodyFont.className} whitespace-pre-line text-sm text-[#66708f]`}>{plan.subtitle}</p>
                 </div>
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-5xl font-extrabold text-[#0E0F28] lg:text-6xl">₹{plan.price}</span>
-                    <span className="text-base font-medium text-gray-400">{plan.period}</span>
+                    <span className={`${headingFont.className} text-5xl font-extrabold text-[#0f1438] lg:text-6xl`}>₹{plan.price}</span>
+                    <span className={`${bodyFont.className} text-base font-medium text-[#8a93ac]`}>{plan.period}</span>
                   </div>
-                  <div className="mt-4 h-px bg-gray-200" />
+                  <div className="mt-4 h-px bg-[#d7ddeb]" />
                 </div>
 
                 <ul className="mb-8 flex-1 space-y-3">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <span className="mt-0.5 shrink-0 text-[#2b40f6]">
+                      <span className="mt-0.5 shrink-0 text-[#3448ff]">
                         <CheckIcon />
                       </span>
-                      <span className="text-sm text-gray-700">{feature}</span>
+                      <span className={`${bodyFont.className} text-sm text-[#3f4663]`}>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <a
                   href="#waitlist"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#0E0F28] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1a1b3a]"
+                  className={`${headingFont.className} inline-flex items-center justify-center gap-2 rounded-full bg-[#080c2f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0e1446]`}
                 >
                   Get Started
                   <ArrowRightIcon />
@@ -258,20 +266,20 @@ export default function PricingSection() {
 
         <div
           ref={bottomRef}
-          className="relative flex flex-col gap-6 rounded-2xl bg-[#0E0F28] p-8 md:flex-row md:items-center md:justify-between md:p-10"
+          className="relative flex flex-col gap-6 rounded-2xl bg-[#060a2f] p-8 md:flex-row md:items-center md:justify-between md:p-10"
         >
           <div>
             <div className="mb-2 flex items-center gap-3">
-              <span className="text-[#a3e635]">
+              <span className="text-[#a8eb3b]">
                 <BuildingIcon />
               </span>
-              <h3 className="text-xl font-bold text-white">Institutions</h3>
+              <h3 className={`${headingFont.className} text-xl font-bold text-white`}>Institutions</h3>
             </div>
-            <p className="mb-4 text-sm text-white/60">For schools, universities & incubators.</p>
+            <p className={`${bodyFont.className} mb-4 text-sm text-white/65`}>For schools, universities & incubators.</p>
             <div className="flex flex-wrap items-center gap-3">
               {["Universities", "Incubators", "Accelerators"].map((tag) => (
-                <span key={tag} className="inline-flex items-center gap-1.5 text-sm text-white/80">
-                  <span className="h-2 w-2 rounded-full bg-[#a3e635]" />
+                <span key={tag} className={`${bodyFont.className} inline-flex items-center gap-1.5 text-sm text-white/82`}>
+                  <span className="h-2 w-2 rounded-full bg-[#a8eb3b]" />
                   {tag}
                 </span>
               ))}
@@ -280,12 +288,12 @@ export default function PricingSection() {
 
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center md:gap-8">
             <div className="text-right">
-              <span className="text-4xl font-extrabold text-white md:text-5xl">Contact</span>
-              <span className="ml-1 text-base font-medium text-white/50">for pricing</span>
+              <span className={`${headingFont.className} text-4xl font-extrabold text-white md:text-5xl`}>Contact</span>
+              <span className={`${bodyFont.className} ml-1 text-base font-medium text-white/58`}>for pricing</span>
             </div>
             <a
               href="#waitlist"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0E0F28] transition-all duration-300 hover:bg-gray-100"
+              className={`${headingFont.className} inline-flex items-center gap-2 rounded-full bg-[#f7f8fb] px-6 py-3 text-sm font-semibold text-[#0a0d30] transition-all duration-300 hover:bg-white`}
             >
               Get Started
               <ArrowRightIcon />

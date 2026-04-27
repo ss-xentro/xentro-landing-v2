@@ -14,11 +14,26 @@ const metrics = [
   { value: "80 +", label: "Mentors" },
 ];
 
+const heroHeadlineLines = [
+  [
+    { text: "Your" },
+    { text: "Idea" },
+  ],
+  [
+    { text: "Deserves" },
+    { text: "A" },
+    { text: "Real", emphasized: true },
+  ],
+  [
+    { text: "Shot" },
+  ],
+];
+
 export default function HeroSection() {
   return (
     <>
       {/* ═══════ WHITE TOP HERO SECTION ═══════ */}
-      <div className="bg-white text-[#0b192c] pt-8 pb-28 relative overflow-hidden">
+      <div className="bg-white text-[#0b192c] pt-8 pb-14 md:pb-16 relative overflow-hidden">
 
         {/* ── Navbar ── */}
         <nav className="relative z-10 mb-10 md:mb-14 flex items-center justify-between pl-6 pr-6 md:pl-8 md:pr-12 lg:pl-10 lg:pr-24">
@@ -64,22 +79,20 @@ export default function HeroSection() {
           {/* Left Hero — Main headline */}
           <div>
             <h1 className="text-[3.2rem] sm:text-[4.2rem] lg:text-[4.8rem] font-bold leading-[1.08] tracking-[-0.02em] mb-4">
-              Your Idea
-              <br />
-              Deserves A{" "}
-                <span className="text-[#071829]">Real</span>
-              <br />
-              Shot
+              {heroHeadlineLines.map((line, lineIndex) => (
+                <span key={`line-${lineIndex}`} className="block">
+                  {line.map((word, wordIndex) => (
+                    <span
+                      key={`${word.text}-${wordIndex}`}
+                      className={`xentro-word-dissolve ${wordIndex < line.length - 1 ? "mr-[0.32em]" : ""} ${word.emphasized ? "text-[#071829]" : ""}`}
+                      style={{ animationDelay: `${lineIndex * 260 + wordIndex * 115}ms` }}
+                    >
+                      {word.text}
+                    </span>
+                  ))}
+                </span>
+              ))}
             </h1>
-            <div className="flex items-center gap-4 lg:gap-6 mt-6">
-              <div className="flex flex-col border-r border-[#0b192c]/20 pr-4 lg:pr-6 h-full py-1">
-                <span className="text-[11px] text-[#0b192c]/50 font-medium">Establish</span>
-                <span className="text-xl lg:text-2xl font-bold mt-1">2026</span>
-              </div>
-              <h2 className="whitespace-nowrap text-[2.8rem] sm:text-[3.5rem] lg:text-[4rem] font-semibold leading-none tracking-[-0.02em]">
-                Digital Ecosystem
-              </h2>
-            </div>
           </div>
 
           {/* Right Hero — Description + metrics */}
@@ -112,11 +125,11 @@ export default function HeroSection() {
         <div className="absolute bottom-0 inset-x-0 h-[250px] bg-[#0b192c] rounded-t-3xl" />
 
         {/* Video — sits on top of the dark strip (z-10 > strip) */}
-        <div className="max-w-[1100px] mx-auto px-2 md:px-8 pt-10 pb-0 relative z-10">
-          <div className="w-full aspect-[21/9] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(11,25,44,0.35)] bg-[#0a1523] border-[6px] border-[#0b192c]/40">
+        <div className="max-w-[1100px] mx-auto px-2 md:px-8 pt-3 md:pt-4 pb-0 relative z-10">
+          <div className="w-full aspect-video rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(11,25,44,0.35)] bg-[#0a1523] border-[6px] border-[#0b192c]/40">
             <iframe
               className="w-full h-full object-cover"
-              src="https://www.youtube.com/embed/SgmuplXU2iY?si=iXZIy2kpSYMcTnS7&autoplay=0"
+              src="https://www.youtube.com/embed/SgmuplXU2iY?autoplay=1&mute=1&loop=1&playlist=SgmuplXU2iY&controls=0&rel=0&modestbranding=1&playsinline=1"
               title="YouTube video player"
               allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"

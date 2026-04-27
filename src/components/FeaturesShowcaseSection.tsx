@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import gsap from "gsap";
+import { MdHiking } from "react-icons/md";
+import { TbCurrencyDollar } from "react-icons/tb";
 
 type AudienceKey = "mentors" | "founders" | "investors";
 
@@ -32,19 +34,14 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
     label: "Mentors",
     tabIcon: (
       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M12 4.5l6.75 3.75L12 12 5.25 8.25 12 4.5zM5.25 12L12 15.75 18.75 12M5.25 15.75L12 19.5l6.75-3.75" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M7.5 8.25h9m-9 3h6M4.5 5.25h15v10.5h-9l-4.5 3v-3h-1.5V5.25z" />
       </svg>
     ),
     logo: {
       glowColor: "rgba(255, 150, 42, 0.38)",
       icon: (
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-28 w-28 text-[#ffb347] filter-[drop-shadow(0_0_24px_rgba(255,146,40,0.85))] sm:h-40 sm:w-40" aria-hidden="true">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.7}
-            d="M7.5 20.25V10.5m0 0V9a3 3 0 013-3h.75a.75.75 0 01.75.75v3.75m-4.5 0H4.5a.75.75 0 00-.75.75v6a.75.75 0 00.75.75H7.5m0 0h5.25c1.518 0 2.863-1.013 3.277-2.473l1.513-5.25a1.5 1.5 0 00-1.442-1.902H13.5m-6 0h6"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d="M6 8.5h12m-12 3.5h8M3.5 4.5h17v11.5h-9.5L6 20v-4h-2.5V4.5z" />
         </svg>
       ),
     },
@@ -54,8 +51,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Startup Discovery Feed",
         description: "Browse motivated startups matched to your expertise.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M3.75 5.25h16.5v13.5H3.75V5.25zm4.5 0v13.5m7.5-13.5v13.5" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M21 21l-4.35-4.35m1.1-5.4a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
           </svg>
         ),
         className: "col-span-2",
@@ -65,8 +62,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Session Scheduling",
         description: "Plan calls and office hours without coordination chaos.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M8.25 3.75v3m7.5-3v3M4.5 8.25h15m-13.5 12h12a1.5 1.5 0 001.5-1.5v-10.5a1.5 1.5 0 00-1.5-1.5h-12a1.5 1.5 0 00-1.5 1.5v10.5a1.5 1.5 0 001.5 1.5z" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 6.75v5.25l3 1.5m5.25-1.5a8.25 8.25 0 11-16.5 0 8.25 8.25 0 0116.5 0z" />
           </svg>
         ),
       },
@@ -75,8 +72,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Feedback Workspace",
         description: "Deliver structured guidance founders can execute fast.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M8.25 9.75h7.5m-7.5 3.75h4.5M6 4.5h12A1.5 1.5 0 0119.5 6v12A1.5 1.5 0 0118 19.5H6A1.5 1.5 0 014.5 18V6A1.5 1.5 0 016 4.5z" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16.86 3.49a2.12 2.12 0 113 3l-10.2 10.2-4.35 1.35 1.35-4.35 10.2-10.2z" />
           </svg>
         ),
       },
@@ -85,8 +82,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Impact Analytics",
         description: "Track mentor outcomes across startups and cohorts.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4.5 19.5h15M7.5 15V9m4.5 6V6.75m4.5 8.25v-3" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M7.5 16.5V12m4.5 4.5V9.75m4.5 6.75v-3m-9 6h10.5" />
           </svg>
         ),
         className: "col-span-2",
@@ -96,21 +93,15 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
   founders: {
     label: "Founders",
     tabIcon: (
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M12 3.75l2.625 5.25 5.625.75-4.125 4.125 1.125 5.625L12 16.5l-5.25 3 1.125-5.625L3.75 9.75l5.625-.75L12 3.75z" />
-      </svg>
+      <MdHiking className="h-4 w-4" aria-hidden="true" />
     ),
     logo: {
       glowColor: "rgba(255, 255, 255, 0.34)",
       icon: (
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-28 w-28 text-white filter-[drop-shadow(0_0_24px_rgba(255,255,255,0.82))] sm:h-40 sm:w-40">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
-          />
-        </svg>
+        <MdHiking
+          className="h-28 w-28 text-white filter-[drop-shadow(0_0_24px_rgba(255,255,255,0.82))] sm:h-40 sm:w-40"
+          aria-hidden="true"
+        />
       ),
     },
     features: [
@@ -119,8 +110,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Guided Learning Paths",
         description: "Videos, templates, and checklists to build with clarity.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4.5 6.75A2.25 2.25 0 016.75 4.5h10.5A2.25 2.25 0 0119.5 6.75v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25V6.75zm4.5 0v10.5m0-8.25h6" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 3.75l1.875 3.75 4.125.6-3 2.925.75 4.125L12 13.5l-3.75 1.65.75-4.125-3-2.925 4.125-.6L12 3.75z" />
           </svg>
         ),
         className: "col-span-2",
@@ -130,8 +121,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Mentor Connect",
         description: "Get validation, pitch reviews, and direction quickly.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M7.5 7.5h9m-9 4.5h5.25m-8.25 7.5l3.258-3.258a2.25 2.25 0 011.591-.659h7.401A2.25 2.25 0 0019.5 13.5V6.75A2.25 2.25 0 0017.25 4.5H6.75A2.25 2.25 0 004.5 6.75v12.75z" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M7.5 9h9m-9 3.75h5.25m-7.5 6.75l2.7-2.7a2.25 2.25 0 011.59-.66h7.11a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H7.35A2.25 2.25 0 005.1 6.75V19.5z" />
           </svg>
         ),
       },
@@ -140,8 +131,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Startup Showcase",
         description: "Publish a profile investors can review in minutes.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4.5 6.75A2.25 2.25 0 016.75 4.5h10.5A2.25 2.25 0 0119.5 6.75v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25V6.75zm3 8.25l2.625-2.625 2.25 2.25 3.375-3.375" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5.25 16.5l4.5-4.5 3.75 3.75 5.25-5.25m-5.25 0h5.25v5.25" />
           </svg>
         ),
       },
@@ -150,8 +141,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Events & Cohorts",
         description: "Join sprints, pitch days, and growth-focused cohorts.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M8.25 3.75v3m7.5-3v3M4.5 8.25h15m-3.75 6.75h.008v.008h-.008V15zm-4.5 0h.008v.008h-.008V15zm-4.5 0h.008v.008H7.5V15zm10.5 3.75h.008v.008h-.008v-.008zm-4.5 0h.008v.008h-.008v-.008zm-4.5 0h.008v.008H7.5v-.008z" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8.25 3.75v3m7.5-3v3M4.5 8.25h15m-13.5 12h12a1.5 1.5 0 001.5-1.5v-10.5a1.5 1.5 0 00-1.5-1.5h-12a1.5 1.5 0 00-1.5 1.5v10.5a1.5 1.5 0 001.5 1.5z" />
           </svg>
         ),
         className: "col-span-2",
@@ -161,21 +152,15 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
   investors: {
     label: "Investors",
     tabIcon: (
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M3.75 19.5h16.5M6.75 15.75h3v-6h-3v6zm7.5 0h3V6.75h-3v9z" />
-      </svg>
+      <TbCurrencyDollar className="h-4 w-4" aria-hidden="true" />
     ),
     logo: {
-      glowColor: "rgba(110, 215, 255, 0.34)",
+      glowColor: "rgba(74, 222, 128, 0.34)",
       icon: (
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-28 w-28 text-[#7ed7ff] filter-[drop-shadow(0_0_24px_rgba(90,198,255,0.76))] sm:h-40 sm:w-40">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M6 3h12l4 9-10 9L2 12l4-9z"
-          />
-        </svg>
+        <TbCurrencyDollar
+          className="h-28 w-28 text-[#4ade80] filter-[drop-shadow(0_0_24px_rgba(34,197,94,0.76))] sm:h-40 sm:w-40"
+          aria-hidden="true"
+        />
       ),
     },
     features: [
@@ -184,8 +169,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Deal Flow Pipeline",
         description: "Track emerging startups in a clean pipeline view.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4.5 6.75h7.5v4.5H4.5v-4.5zm0 6h7.5v4.5H4.5v-4.5zm9-3h6v7.5h-6v-7.5z" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3.75 8.25h12m-9-3l-3 3 3 3m10.5 4.5h-12m9 3l3-3-3-3" />
           </svg>
         ),
         className: "col-span-2",
@@ -195,8 +180,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Startup Analytics",
         description: "Review traction signals and core startup metrics.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M4.5 19.5h15m-12-3V9.75m4.5 6.75v-9m4.5 9v-4.5" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M4.5 19.5h15m-12-3V9.75m4.5 6.75v-9m4.5 9v-4.5" />
           </svg>
         ),
       },
@@ -205,8 +190,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Syndicate Co-investing",
         description: "Collaborate and co-invest with top mentors and leads.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M9 7.5a3 3 0 116 0 3 3 0 01-6 0zM5.25 18.75a5.25 5.25 0 0110.5 0m1.5-9a2.25 2.25 0 110 4.5m-1.125 4.5h3.375" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 7.5a3 3 0 116 0 3 3 0 01-6 0zM5.25 18.75a5.25 5.25 0 0110.5 0m1.5-9a2.25 2.25 0 110 4.5m-1.125 4.5h3.375" />
           </svg>
         ),
       },
@@ -215,8 +200,8 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         title: "Portfolio Tracking",
         description: "Monitor portfolio founders and progress over time.",
         icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M6.75 4.5h10.5A2.25 2.25 0 0119.5 6.75v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25V6.75A2.25 2.25 0 016.75 4.5zm2.25 4.5h6m-6 3h4.5" />
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M6.75 4.5h10.5A2.25 2.25 0 0119.5 6.75v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 17.25V6.75A2.25 2.25 0 016.75 4.5zm2.25 4.5h6m-6 3h4.5" />
           </svg>
         ),
         className: "col-span-2",
@@ -251,7 +236,7 @@ function FeatureCard({ title, description, icon, className = "" }: FeatureCardPr
       />
 
       <div className="relative z-10 mt-1">
-        <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-white/8 text-white/95">
+        <div className="mb-3 text-white/95">
           {icon}
         </div>
         <h3 className="text-[1.12rem] font-semibold leading-tight text-white sm:text-[1.3rem]">
@@ -269,13 +254,8 @@ function LogoPanel({ activeAudience, panelRef }: LogoPanelProps) {
   return (
     <article
       ref={panelRef}
-      className="relative aspect-square w-full overflow-hidden rounded-[1.1rem] bg-[#111a2b]"
+      className="relative aspect-square w-full overflow-hidden rounded-[1.1rem]"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "rgba(255,255,255,0.04)" }}
-      />
       <div className="relative z-10 flex h-full items-center justify-center p-6">
         {audienceOrder.map((key) => {
           const logo = audienceContent[key].logo;

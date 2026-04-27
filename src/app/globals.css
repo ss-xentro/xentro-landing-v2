@@ -20,7 +20,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-
 .text-teal-accent {
   color: #7ed7ff;
 }
@@ -92,6 +91,26 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@keyframes xentroWordDissolve {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    filter: blur(8px);
+  }
+
+  68% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .xentro-section-rise {
   animation: xentroSectionRise 700ms ease-out both;
 }
@@ -110,11 +129,25 @@ h1, h2, h3, h4, h5, h6 {
   animation: xentroIconBlob 620ms cubic-bezier(0.24, 0.78, 0.26, 1) both;
 }
 
+.xentro-word-dissolve {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  animation: xentroWordDissolve 760ms cubic-bezier(0.2, 0.84, 0.22, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .xentro-section-rise,
   .xentro-bubble-float,
   .xentro-icon-swap,
-  .xentro-icon-blob {
+  .xentro-icon-blob,
+  .xentro-word-dissolve {
     animation: none !important;
+  }
+
+  .xentro-word-dissolve {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
