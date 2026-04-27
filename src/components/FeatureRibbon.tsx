@@ -140,7 +140,7 @@ export default function FeatureRibbon() {
   }, []);
 
   return (
-    <section className="w-full overflow-hidden bg-[#0f2033] py-10">
+    <section className="w-full overflow-hidden bg-[#0f2033] pt-4 pb-3">
       <div ref={viewportRef} className="overflow-hidden">
         <div ref={trackRef} className="flex w-max" style={{ willChange: "transform" }}>
           {[0, 1].map((setIndex) => (
@@ -158,12 +158,12 @@ export default function FeatureRibbon() {
 
 function FeatureCard({ feature }: { feature: (typeof features)[0] }) {
   return (
-    <div className="group flex shrink-0 w-67.5 h-24 items-center gap-4 rounded-2xl bg-[#0f2033] px-5 cursor-default transition-all duration-300 hover:bg-[#0b2540]">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#102943] text-[#3b82f6] transition-colors duration-300 group-hover:text-[#60a5fa]">
+    <div className="group flex shrink-0 w-56 h-20 items-center gap-3 rounded-2xl bg-[#0f2033] px-4 cursor-default transition-all duration-300 hover:bg-[#0b2540]">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#102943] text-[#3b82f6] transition-colors duration-300 group-hover:text-[#60a5fa]">
         {feature.icon}
       </div>
 
-      <span className="text-white text-[18px] font-semibold leading-snug">
+      <span className="text-white text-[16px] font-semibold leading-snug">
         {feature.title}
       </span>
     </div>

@@ -173,19 +173,12 @@ export default function PricingSection() {
 
       <div
         className="absolute inset-0 opacity-100"
-        style={{
-          background:
-            "radial-gradient(circle at 12% 16%, rgba(110,215,255,0.14), rgba(110,215,255,0) 34%), radial-gradient(circle at 84% 18%, rgba(92,123,252,0.18), rgba(92,123,252,0) 30%), linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0) 40%)",
-        }}
+        style={{ background: "rgba(255,255,255,0.02)" }}
       />
 
       <div
         className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-        }}
+        style={{ background: "rgba(255,255,255,0.01)" }}
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">

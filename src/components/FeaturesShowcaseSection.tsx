@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import gsap from "gsap";
 
 type AudienceKey = "mentors" | "founders" | "investors";
 
@@ -30,17 +31,12 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
     logo: {
       glowColor: "rgba(255, 150, 42, 0.38)",
       icon: (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={1.9}
-          className="h-20 w-20 text-[#ffb347] filter-[drop-shadow(0_0_18px_rgba(255,146,40,0.85))] sm:h-24 sm:w-24"
-        >
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-28 w-28 text-[#ffb347] filter-[drop-shadow(0_0_24px_rgba(255,146,40,0.85))] sm:h-40 sm:w-40">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M9.5 10.5V6.75c0-1.1.9-2 2-2h.5c.52 0 .97.38 1.06.89l.74 4.11h3.45c1 0 1.76.92 1.55 1.89l-1.03 4.62a1.5 1.5 0 01-1.46 1.17H9.5m0-7H6.5v7h3"
+            strokeWidth={1.5}
+            d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.772-1.634.772H9.75c-.935 0-1.813-.415-2.422-1.126l-3.328-3.887A2.25 2.25 0 015.25 12.75v-2.25c0-.621.504-1.125 1.125-1.125z"
           />
         </svg>
       ),
@@ -75,15 +71,12 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
     logo: {
       glowColor: "rgba(255, 255, 255, 0.34)",
       icon: (
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="h-20 w-20 text-white filter-[drop-shadow(0_0_18px_rgba(255,255,255,0.82))] sm:h-24 sm:w-24"
-        >
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-28 w-28 text-white filter-[drop-shadow(0_0_24px_rgba(255,255,255,0.82))] sm:h-40 sm:w-40">
           <path
-            fillRule="evenodd"
-            d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
-            clipRule="evenodd"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
           />
         </svg>
       ),
@@ -118,14 +111,13 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
     logo: {
       glowColor: "rgba(110, 215, 255, 0.34)",
       icon: (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth={2}
-          className="h-20 w-20 text-[#7ed7ff] filter-[drop-shadow(0_0_18px_rgba(90,198,255,0.76))] sm:h-24 sm:w-24"
-        >
-          <rect x="7" y="7" width="10" height="10" rx="1.7" transform="rotate(45 12 12)" />
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-28 w-28 text-[#7ed7ff] filter-[drop-shadow(0_0_24px_rgba(90,198,255,0.76))] sm:h-40 sm:w-40">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M6 3h12l4 9-10 9L2 12l4-9z"
+          />
         </svg>
       ),
     },
@@ -140,6 +132,11 @@ const audienceContent: Record<AudienceKey, AudienceData> = {
         id: "I-03",
         title: "Startup Analytics",
         description: "Review traction signals and core startup metrics.",
+      },
+      {
+        id: "I-04",
+        title: "Syndicate Co-investing",
+        description: "Collaborate and co-invest with top mentors and leads.",
       },
       {
         id: "I-05",
@@ -160,13 +157,12 @@ type FeatureCardProps = {
 };
 
 type LogoPanelProps = {
-  logo: AudienceLogo;
-  label: string;
+  activeAudience: AudienceKey;
   panelRef?: React.RefObject<HTMLElement | null>;
 };
 
 function FeatureCard({ id, title, description, className = "", tag = "Module" }: FeatureCardProps) {
-  const baseClass = "border-white/15 bg-[linear-gradient(170deg,rgba(20,29,45,0.86)_0%,rgba(10,14,24,0.9)_100%)]";
+  const baseClass = "border-white/15 bg-[#0f1624]";
 
   return (
     <article
@@ -175,10 +171,7 @@ function FeatureCard({ id, title, description, className = "", tag = "Module" }:
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(circle at 12% 14%, rgba(100, 140, 255, 0.2), rgba(100, 140, 255, 0) 44%)",
-        }}
+        style={{ background: "rgba(255,255,255,0.06)" }}
       />
 
       <div className="relative z-10 flex items-center justify-between text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-white/55">
@@ -198,33 +191,56 @@ function FeatureCard({ id, title, description, className = "", tag = "Module" }:
   );
 }
 
-function LogoPanel({ logo, label, panelRef }: LogoPanelProps) {
+function LogoPanel({ activeAudience, panelRef }: LogoPanelProps) {
   return (
     <article
       ref={panelRef}
-      className="relative aspect-square w-full overflow-hidden rounded-[1.1rem] bg-[linear-gradient(160deg,rgba(28,38,58,0.88)_0%,rgba(10,15,25,0.92)_68%,rgba(5,8,14,0.95)_100%)]"
+      className="relative aspect-square w-full overflow-hidden rounded-[1.1rem] bg-[#111a2b]"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 12% 12%, rgba(255,255,255,0.2), rgba(255,255,255,0) 42%), radial-gradient(circle at 85% 84%, rgba(110,145,255,0.22), rgba(110,145,255,0) 38%)",
-        }}
+        style={{ background: "rgba(255,255,255,0.04)" }}
       />
-
       <div className="relative z-10 flex h-full items-center justify-center p-6">
-        <span
-          key={`blob-${label}`}
-          aria-hidden="true"
-          className="xentro-icon-blob absolute h-30 w-30 rounded-[38%_62%_59%_41%/42%_39%_61%_58%] blur-xl"
-          style={{ backgroundColor: logo.glowColor }}
-        />
+        {audienceOrder.map((key) => {
+          const logo = audienceContent[key].logo;
+          const label = audienceContent[key].label;
+          const isActive = key === activeAudience;
 
-        <div key={`icon-${label}`} className="xentro-icon-swap relative z-10">
-          <span className="sr-only">{label} logo</span>
-          {logo.icon}
-        </div>
+          // Pure CSS Liquid Morphing Transition via direct inline styles for 100% reliability
+          return (
+            <div
+              key={key}
+              className="absolute inset-0 flex items-center justify-center z-10"
+              style={{
+                transition: "all 800ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+                opacity: isActive ? 1 : 0,
+                transform: isActive ? "scale(1) rotate(0deg)" : "scale(0.5) rotate(-15deg)",
+                filter: isActive ? "blur(0px)" : "blur(12px)",
+                pointerEvents: isActive ? "auto" : "none",
+              }}
+            >
+              {/* Background Glow */}
+              <span
+                aria-hidden="true"
+                className="absolute h-40 w-40 sm:h-52 sm:w-52 rounded-[38%_62%_59%_41%/42%_39%_61%_58%] blur-2xl"
+                style={{
+                  backgroundColor: logo.glowColor,
+                  transition: "all 700ms ease-out",
+                  opacity: isActive ? 1 : 0,
+                  transform: isActive ? "scale(1)" : "scale(0.5)",
+                }}
+              />
+
+              {/* The Actual Icon */}
+              <div className="relative z-10">
+                <span className="sr-only">{label} logo</span>
+                {logo.icon}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </article>
   );
@@ -263,24 +279,12 @@ export default function FeaturesShowcaseSection() {
     : undefined;
 
   return (
-    <section className="relative isolate w-full overflow-hidden bg-[#05070d] py-18 sm:py-24">
+    <section className="relative isolate w-full overflow-hidden bg-[#030712] py-18 sm:py-24">
+      {/* Background Grid Gradient */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 15% 18%, rgba(92, 123, 252, 0.24), rgba(92, 123, 252, 0) 38%), radial-gradient(circle at 85% 8%, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0) 28%), linear-gradient(180deg, #05070d 0%, #070c16 62%, #05070d 100%)",
-        }}
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-35"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
-          backgroundSize: "34px 34px",
-        }}
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#8080801a_1px,transparent_1px),linear-gradient(to_bottom,#8080801a_1px,transparent_1px)] bg-[size:32px_32px]"
+        style={{ WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 80%)", maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 80%)" }}
       />
 
       <div className="relative z-10 mx-auto max-w-280 px-6 sm:px-8 lg:px-10">
@@ -304,40 +308,44 @@ export default function FeaturesShowcaseSection() {
         >
           <LogoPanel logo={currentSection.logo} label={currentSection.label} panelRef={logoPanelRef} />
 
-          <div className="grid grid-cols-3 auto-rows-[132px] gap-4 sm:auto-rows-[154px] sm:gap-5 lg:h-(--logo-panel-height) lg:auto-rows-auto lg:grid-rows-2 lg:min-h-0">
-            {currentSection.features.map((feature) => (
-              <FeatureCard
-                key={`${activeAudience}-${feature.id}`}
-                id={feature.id}
-                title={feature.title}
-                description={feature.description}
-                className={feature.className}
-                tag={currentSection.label}
-              />
-            ))}
+          {/* Right column: buttons on top, feature cards below */}
+          <div className="flex flex-col gap-4">
+            {/* Audience selector buttons */}
+            <div className="grid grid-cols-3 gap-3 sm:gap-4">
+              {audienceOrder.map((audience) => {
+                const isActive = audience === activeAudience;
+                return (
+                  <button
+                    type="button"
+                    key={audience}
+                    onClick={() => setActiveAudience(audience)}
+                    aria-pressed={isActive}
+                    className={`h-12 w-full rounded-full border text-[0.69rem] font-semibold uppercase tracking-[0.19em] transition-all duration-200 ${
+                      isActive
+                        ? "border-white/70 bg-white text-[#070c16] shadow-[0_10px_25px_rgba(255,255,255,0.22)]"
+                        : "border-white/35 bg-white/4 text-white/88 hover:border-white/55 hover:bg-white/10"
+                    }`}
+                  >
+                    {audienceContent[audience].label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Feature cards */}
+            <div className="grid flex-1 grid-cols-3 auto-rows-[132px] gap-4 sm:auto-rows-[154px] sm:gap-5 lg:auto-rows-auto lg:grid-rows-2 lg:min-h-0">
+              {currentSection.features.map((feature) => (
+                <FeatureCard
+                  key={`${activeAudience}-${feature.id}`}
+                  id={feature.id}
+                  title={feature.title}
+                  description={feature.description}
+                  className={feature.className}
+                  tag={currentSection.label}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
-          {audienceOrder.map((audience) => {
-            const isActive = audience === activeAudience;
-
-            return (
-              <button
-                type="button"
-                key={audience}
-                onClick={() => setActiveAudience(audience)}
-                aria-pressed={isActive}
-                className={`h-12 w-full rounded-full border text-[0.69rem] font-semibold uppercase tracking-[0.19em] transition-all duration-200 ${
-                  isActive
-                    ? "border-white/70 bg-white text-[#070c16] shadow-[0_10px_25px_rgba(255,255,255,0.22)]"
-                    : "border-white/35 bg-white/4 text-white/88 hover:border-white/55 hover:bg-white/10"
-                }`}
-              >
-                {audienceContent[audience].label}
-              </button>
-            );
-          })}
         </div>
       </div>
     </section>

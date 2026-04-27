@@ -2,7 +2,7 @@ export default function FounderNoteSection() {
   return (
     <section className="w-full bg-[#060b14] py-20 md:py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,12,22,0.96)_0%,rgba(6,11,20,0.98)_100%)] px-6 py-10 shadow-[0_28px_90px_rgba(0,0,0,0.32)] sm:px-8 md:px-10 md:py-12 lg:px-12">
+        <div className="rounded-[2rem] border border-white/10 bg-[#070c16] px-6 py-10 shadow-[0_28px_90px_rgba(0,0,0,0.32)] sm:px-8 md:px-10 md:py-12 lg:px-12">
           <div className="mb-10 text-center">
             <h2 className="mt-3 text-[2rem] font-semibold tracking-[-0.04em] text-white sm:text-[2.4rem] lg:text-[2.9rem]">
               Founder Note
@@ -10,17 +10,14 @@ export default function FounderNoteSection() {
           </div>
 
           <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
-            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[linear-gradient(160deg,rgba(26,34,49,0.98)_0%,rgba(13,18,29,0.98)_48%,rgba(8,12,20,1)_100%)] min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]">
+            <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#101a2b] min-h-[320px] sm:min-h-[380px] lg:min-h-[430px]">
               <div
                 aria-hidden="true"
                 className="absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(circle at 20% 20%, rgba(110,215,255,0.16), rgba(110,215,255,0) 28%), radial-gradient(circle at 78% 24%, rgba(92,123,252,0.2), rgba(92,123,252,0) 32%), linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0) 44%)",
-                }}
+                style={{ background: "rgba(255,255,255,0.03)" }}
               />
 
-              <div className="absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-size:38px_38px]" />
+              <div className="absolute inset-0 opacity-12 bg-white/10" />
 
               <div
                 aria-hidden="true"
@@ -31,7 +28,7 @@ export default function FounderNoteSection() {
                 }}
               />
 
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,11,20,0.12)_0%,rgba(6,11,20,0.3)_100%)]" />
+              <div className="absolute inset-0 bg-[#060b14]/20" />
             </div>
 
             <div className="max-w-2xl">
