@@ -201,7 +201,7 @@ export default function ProblemStatementSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="xentro-section-rise relative w-full overflow-hidden bg-white py-24 md:py-32">
+    <section id="problem" ref={sectionRef} className="xentro-section-rise relative w-full overflow-hidden bg-white py-24 md:py-32">
       <div className="w-full border-y border-slate-200 bg-white">
         <div
           aria-hidden="true"

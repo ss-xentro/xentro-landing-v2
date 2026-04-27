@@ -419,7 +419,7 @@ export default function FeaturesShowcaseSection() {
     : undefined;
 
   return (
-    <section ref={sectionRef} className="relative isolate w-full overflow-hidden bg-[#030712] py-18 sm:py-24">
+    <section id="features" ref={sectionRef} className="relative isolate w-full overflow-hidden bg-[#030712] py-18 sm:py-24">
       {/* Background Grid Gradient */}
       <div
         aria-hidden="true"

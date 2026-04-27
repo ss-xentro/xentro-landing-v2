@@ -38,7 +38,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-[#060b14] px-6 py-20 sm:px-8 lg:px-10">
+    <section id="faq" className="w-full bg-[#060b14] px-6 py-20 sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl rounded-[1.8rem] bg-[#eef1f5] px-8 py-12 sm:px-12 sm:py-14 lg:px-16 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
           <div>

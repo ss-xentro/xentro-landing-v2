@@ -62,7 +62,7 @@ export default function FounderNoteSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#4f678a] py-24 md:py-32">
+    <section id="founder" ref={sectionRef} className="w-full bg-[#4f678a] py-24 md:py-32">
       <div className="mx-auto max-w-300 px-6 sm:px-8 lg:px-10">
         <div className="relative mx-auto h-140 max-w-275">
           <div className="absolute left-0 top-1/2 z-10 w-85 -translate-y-1/2 sm:w-95 lg:w-107.5">

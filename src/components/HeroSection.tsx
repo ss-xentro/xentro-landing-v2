@@ -1,11 +1,15 @@
+"use client";
+
+import type { MouseEvent } from "react";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "#top" },
   { label: "Problem", href: "#problem" },
   { label: "Features", href: "#features" },
-  { label: "Team", href: "#team" },
+  { label: "Founder", href: "#founder" },
   { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
 ];
 
 const metrics = [
@@ -30,22 +34,35 @@ const heroHeadlineLines = [
 ];
 
 export default function HeroSection() {
+  const handleGetStartedClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const pricingSection = document.getElementById("pricing");
+
+    if (pricingSection) {
+      pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    window.location.hash = "pricing";
+  };
+
   return (
     <>
       {/* ═══════ WHITE TOP HERO SECTION ═══════ */}
-      <div className="bg-white text-[#0b192c] pt-8 pb-14 md:pb-16 relative overflow-hidden">
+      <div id="top" className="bg-white text-[#0b192c] pt-8 pb-14 md:pb-16 relative overflow-hidden">
 
         {/* ── Navbar ── */}
         <nav className="relative z-10 mb-10 md:mb-14 flex items-center justify-between pl-6 pr-6 md:pl-8 md:pr-12 lg:pl-10 lg:pr-24">
           {/* Logo — pushed further left */}
-          <div className="flex w-full items-center gap-3 -ml-1 sm:w-72 lg:w-80">
+          <div className="flex w-full items-center gap-3 -ml-1 sm:w-88 lg:w-96">
             <Image
               src="/image-removebg-preview.png"
               alt="XENTRO"
-              width={340}
-              height={136}
+              width={420}
+              height={168}
               priority
-              className="h-18 w-auto sm:h-20 lg:h-22"
+              className="h-24 w-auto sm:h-28 lg:h-32"
             />
           </div>
 
@@ -55,11 +72,11 @@ export default function HeroSection() {
               <div key={item.label} className="flex flex-col items-center">
                 <a
                   href={item.href}
-                  className={`transition-colors hover:text-[#0b192c] pb-1 ${item.label === "Home" ? "text-[#0b192c] font-semibold" : "text-[#0b192c]/60"}`}
+                  className={`transition-colors hover:text-[#0b192c] pb-1 ${item.href === "#top" ? "text-[#0b192c] font-semibold" : "text-[#0b192c]/60"}`}
                 >
                   {item.label}
                 </a>
-                {item.label === "Home" && (
+                {item.href === "#top" && (
                   <div className="w-5 h-[3px] bg-[#7ed7ff] rounded-full -mt-0.5"></div>
                 )}
               </div>
@@ -68,7 +85,11 @@ export default function HeroSection() {
 
           {/* Right Button */}
           <div className="hidden w-45 items-center justify-end text-[13px] font-semibold sm:flex">
-            <a href="#pricing" className="bg-[#071829] text-white px-6 py-2.5 hover:bg-[#0d2744] transition-colors rounded-lg">
+            <a
+              href="#pricing"
+              onClick={handleGetStartedClick}
+              className="bg-[#071829] text-white px-6 py-2.5 hover:bg-[#0d2744] transition-colors rounded-lg"
+            >
               Get Started
             </a>
           </div>
