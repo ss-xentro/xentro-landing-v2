@@ -239,7 +239,7 @@ export default function ProblemStatementSection() {
                 transitionDelay: "170ms",
               }}
             >
-              Most Indian students with startup ideas hit the same wall — no roadmap, no mentor, no platform that speaks to where they actually are Not an IIT Not in Bangalore Just someone with an idea and nowhere concrete to go
+              Most Indian students with startup ideas hit the same wall no roadmap, no mentor, no platform that speaks to where they actually are Not an IIT Not in Bangalore Just someone with an idea and nowhere concrete to go
             </p>
 
             <p
