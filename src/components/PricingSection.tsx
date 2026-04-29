@@ -74,12 +74,12 @@ const PLANS: Plan[] = [
 ];
 
 const BUBBLES = [
-  { size: 32, left: "12%", delay: "0s", duration: "10s", opacity: 0.22 },
-  { size: 40, left: "26%", delay: "2.2s", duration: "13s", opacity: 0.19 },
-  { size: 24, left: "38%", delay: "1.1s", duration: "12.5s", opacity: 0.17 },
-  { size: 36, left: "54%", delay: "3.6s", duration: "14s", opacity: 0.21 },
-  { size: 28, left: "68%", delay: "4.8s", duration: "11.8s", opacity: 0.18 },
-  { size: 22, left: "82%", delay: "6.1s", duration: "10.8s", opacity: 0.16 },
+  { size: 48, left: "12%", delay: "0s", duration: "10s", opacity: 0.26 },
+  { size: 58, left: "26%", delay: "2.2s", duration: "13s", opacity: 0.24 },
+  { size: 40, left: "38%", delay: "1.1s", duration: "12.5s", opacity: 0.21 },
+  { size: 54, left: "54%", delay: "3.6s", duration: "14s", opacity: 0.25 },
+  { size: 48, left: "68%", delay: "4.8s", duration: "11.8s", opacity: 0.22 },
+  { size: 42, left: "82%", delay: "6.1s", duration: "10.8s", opacity: 0.20 },
 ];
 
 function CheckIcon() {
