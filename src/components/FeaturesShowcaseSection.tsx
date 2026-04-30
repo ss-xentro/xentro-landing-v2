@@ -32,6 +32,11 @@ const ROLES = [
     title: "For Investors",
     description: "Deal Flow Pipeline, Startup Analytics, and Syndicate Co-investing to back the best teams.",
   },
+  {
+    id: "institutions",
+    title: "For Institutions",
+    description: "Portfolio Management, Cohort Tracking, and Community Tools for accelerators, VC firms, and incubators.",
+  },
 ];
 
 export default function FeaturesShowcaseSection() {
@@ -96,6 +101,15 @@ export default function FeaturesShowcaseSection() {
       tl.to(".role-text-1", { opacity: 0, y: -20, duration: 0.4 }, ">-0.2");
       tl.to(".role-text-2", { opacity: 1, y: 0, duration: 0.4 }, "<0.2");
 
+      // 6. Bubble 4 (Institutions)
+      tl.to(".bubble-3", { 
+        scale: 1, opacity: 1, x: "38vw", y: "10vh", duration: 1,
+        onStart: () => setActiveRole(3),
+        onReverseComplete: () => setActiveRole(2)
+      }, "+=0.2");
+      tl.to(".role-text-2", { opacity: 0, y: -20, duration: 0.4 }, ">-0.2");
+      tl.to(".role-text-3", { opacity: 1, y: 0, duration: 0.4 }, "<0.2");
+
       // Fade in the final text message
       tl.to(".final-text", { opacity: 1, y: 0, duration: 0.5 }, "+=0.2");
 
@@ -143,6 +157,15 @@ export default function FeaturesShowcaseSection() {
       }, "+=0.2");
       tl.to(".role-text-1", { opacity: 0, y: -20, duration: 0.4 }, ">-0.2");
       tl.to(".role-text-2", { opacity: 1, y: 0, duration: 0.4 }, "<0.2");
+
+      // Bubble 4 (Institutions)
+      tl.to(".bubble-3", { 
+        scale: 1, opacity: 1, x: "-25vw", y: "42vh", duration: 1,
+        onStart: () => setActiveRole(3),
+        onReverseComplete: () => setActiveRole(2)
+      }, "+=0.2");
+      tl.to(".role-text-2", { opacity: 0, y: -20, duration: 0.4 }, ">-0.2");
+      tl.to(".role-text-3", { opacity: 1, y: 0, duration: 0.4 }, "<0.2");
 
       // Fade in the final text message
       tl.to(".final-text", { opacity: 1, y: 0, duration: 0.5 }, "+=0.2");
