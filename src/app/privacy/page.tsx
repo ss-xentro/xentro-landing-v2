@@ -362,6 +362,16 @@ const sections = [
     ),
   },
   {
+    id: "refund-policy",
+    heading: "1.Refund and policy:",
+    content: (
+      <div className="space-y-4">
+        <p>You can request a Refund within 24 hours . Return will be processed within 2-4 days</p>
+        <p>Refund will be processed and &quot;credited&quot; within 7-10 working days.</p>
+      </div>
+    ),
+  },
+  {
     id: "updates",
     heading: "Policy Updates",
     content: (

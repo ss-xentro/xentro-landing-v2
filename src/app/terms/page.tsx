@@ -160,11 +160,9 @@ const sections = [
     heading: "6. Cancellations & Refunds",
     content: (
       <div className="space-y-4">
-        <SubSection title="6.1 Refund policy.">
-          <p>We offer pro-rata refunds for eligible plan cancellations. A one-time onboarding fee of INR 500 will be deducted from any refund to cover processing costs.</p>
-          <p className="mt-2 rounded-lg bg-[#f4f6fb] px-4 py-3 font-mono text-sm text-[#0b192c]">
-            Refund Amount = Plan Price − (Pro-Rata Cost + Onboarding Fee)
-          </p>
+        <SubSection title="1.Refund and policy:">
+          <p>You can request a Refund within 24 hours . Return will be processed within 2-4 days</p>
+          <p className="mt-2">Refund will be processed and &quot;credited&quot; within 7-10 working days.</p>
         </SubSection>
         <SubSection title="6.2 Non-refundable services.">
           <p>One-time services delivered by Mentors or coaches (e.g., pitch reviews, profile audits) that have been commenced or delivered are non-refundable.</p>
