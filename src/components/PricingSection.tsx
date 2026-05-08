@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Be_Vietnam_Pro, Montserrat } from "next/font/google";
@@ -110,6 +110,7 @@ export default function PricingSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -280,15 +281,13 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                <a
-                  href="https://app.xentro.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => setShowPopup(true)}
                   className={`${headingFont.className} inline-flex items-center justify-center gap-2 rounded-full bg-[#080c2f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0e1446]`}
                 >
                   Get Started
                   <ArrowRightIcon />
-                </a>
+                </button>
               </article>
             </div>
           ))}
@@ -321,18 +320,47 @@ export default function PricingSection() {
               <span className={`${headingFont.className} text-4xl font-extrabold text-white md:text-5xl`}>Contact</span>
               <span className={`${bodyFont.className} ml-1 text-base font-medium text-white/58`}>for pricing</span>
             </div>
-            <a
-              href="https://app.xentro.in"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setShowPopup(true)}
               className={`${headingFont.className} inline-flex items-center gap-2 rounded-full bg-[#f7f8fb] px-6 py-3 text-sm font-semibold text-[#0a0d30] transition-all duration-300 hover:bg-white`}
             >
               Get Started
               <ArrowRightIcon />
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Coming Soon Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+          <div className="relative rounded-2xl bg-white p-8 shadow-2xl md:p-12">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="text-center">
+              <h2 className={`${headingFont.className} mb-4 text-3xl font-bold text-[#0f1438] md:text-4xl`}>
+                Coming Soon
+              </h2>
+              <p className={`${bodyFont.className} mb-8 text-base text-[#66708f] md:text-lg`}>
+                We&apos;re working hard to bring you the best experience. Stay tuned!
+              </p>
+              <button
+                onClick={() => setShowPopup(false)}
+                className={`${headingFont.className} rounded-full bg-[#080c2f] px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0e1446]`}
+              >
+                Got it
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
