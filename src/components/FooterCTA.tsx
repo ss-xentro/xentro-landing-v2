@@ -53,6 +53,7 @@ export default function FooterCTA() {
           with India&apos;s top ecosystem.
         </h2>
 
+        {/*
         <div className="mt-9 flex w-full max-w-[520px] items-center justify-center gap-3">
           <a
             href="https://app.xentro.in"
@@ -63,6 +64,7 @@ export default function FooterCTA() {
             Join Now
           </a>
         </div>
+        */}
 
         {/* Divider */}
         <div className="mt-12 w-full border-t border-white/20" />

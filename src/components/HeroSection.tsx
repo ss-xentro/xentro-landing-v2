@@ -76,9 +76,9 @@ export default function HeroSection() {
       <div id="top" className="bg-white text-[#0b192c] pt-4 md:pt-6 pb-14 md:pb-16 relative overflow-hidden">
 
         {/* ── Navbar ── */}
-        <nav className={`fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 py-4 md:px-8 lg:px-10 bg-white/95 backdrop-blur-sm border-b border-black/5 transition-transform duration-300 ${isNavVisible ? "translate-y-0" : "-translate-y-full"}`}>
+        <nav className={`fixed top-0 inset-x-0 z-50 flex items-center px-6 py-4 md:px-8 lg:px-10 bg-white/95 backdrop-blur-sm border-b border-black/5 transition-transform duration-300 ${isNavVisible ? "translate-y-0" : "-translate-y-full"}`}>
           {/* Logo — pushed further left */}
-          <div className="flex w-full items-center gap-3 ml-0 sm:w-88 lg:w-96">
+          <div className="flex shrink-0 items-center gap-3 ml-0 sm:w-88 lg:w-96">
             <Image
               src="/xentro-logo-no%20bg%20black%20text.svg"
               alt="XENTRO"
@@ -89,8 +89,8 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* Nav Links — centered */}
-          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 text-[15px] md:flex lg:gap-10">
+          {/* Nav Links — right aligned */}
+          <div className="ml-auto hidden items-center gap-8 text-[15px] md:flex lg:gap-10">
             {navItems.map((item) => (
               <div key={item.label} className="flex flex-col items-center">
                 <a
@@ -107,6 +107,20 @@ export default function HeroSection() {
           </div>
 
           {/* Right Button */}
+          {/*
+          <div className="ml-auto hidden items-center justify-end text-[13px] font-semibold md:flex">
+            <a
+              href="https://app.xentro.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-[#1B17FF] px-6 py-2.5 text-white transition-colors hover:bg-[#0d2744]"
+            >
+              Get Started
+            </a>
+          </div>
+          */}
+
+          {/*
           <div className="hidden w-45 items-center justify-end text-[13px] font-semibold md:flex">
             <a
               href="https://app.xentro.in"
@@ -117,6 +131,7 @@ export default function HeroSection() {
               Get Started
             </a>
           </div>
+          */}
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center justify-end">
@@ -145,6 +160,7 @@ export default function HeroSection() {
                 {item.label}
               </a>
             ))}
+            {/*
             <a
               href="https://app.xentro.in"
               target="_blank"
@@ -154,6 +170,7 @@ export default function HeroSection() {
             >
               Get Started
             </a>
+            */}
           </div>
         </nav>
 
