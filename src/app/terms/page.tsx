@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { JoinButtonWithPopup } from "@/components/JoinButtonWithPopup";
 
 export const metadata: Metadata = {
   title: "Terms of Service – Xentro Ventures",
@@ -354,9 +355,7 @@ export default function TermsPage() {
         <Link href="/">
           <Image src="/xentro-logo-no%20bg%20black%20text.svg" alt="XENTRO" width={420} height={168} priority className="h-14 w-auto sm:h-16" />
         </Link>
-        <a href="https://app.xentro.in/join" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 rounded-lg bg-[#1B17FF] px-5 py-2.5 text-[13px] font-semibold text-white transition-colors hover:bg-[#1B17FF]/85">
-          Join <span className="text-[15px]">→</span>
-        </a>
+        <JoinButtonWithPopup />
       </nav>
 
       {/* Hero */}
