@@ -244,17 +244,10 @@ export default function PricingSection() {
               }}
               className="group relative"
             >
-              {plan.badge && (
-                <div className="absolute -top-3 right-6 z-10">
-                  <span className="inline-block rounded-full bg-[#a8eb3b] px-4 py-1 text-xs font-bold text-[#0a0d2f]">
-                    {plan.badge}
-                  </span>
-                </div>
-              )}
 
               <article
                 className={`relative flex h-full flex-col rounded-2xl p-8 transition-transform duration-300 group-hover:-translate-y-2 ${
-                  plan.highlight ? "bg-[#f1f3f8] ring-2 ring-[#a8eb3b]" : "bg-[#f1f3f8]"
+                  plan.highlight ? "bg-[#f1f3f8]" : "bg-[#f1f3f8]"
                 }`}
               >
                 <div className="mb-6">
