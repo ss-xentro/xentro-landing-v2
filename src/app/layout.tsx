@@ -1,10 +1,72 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Red_Hat_Display } from "next/font/google";
+import localFont from "next/font/local";
+import { Red_Hat_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+const aptos = localFont({
+  variable: "--font-aptos",
+  src: [
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Light-Italic.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-SemiBold-Italic.ttf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Bold-Italic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-ExtraBold.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-ExtraBold-Italic.ttf",
+      weight: "800",
+      style: "italic",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../../public/font/Microsoft Aptos Fonts/Aptos-Black-Italic.ttf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
 });
 
 const redHatDisplay = Red_Hat_Display({
@@ -80,7 +142,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${redHatDisplay.variable}`} style={{ colorScheme: 'light' }}>
+    <html lang="en" className={`${aptos.variable} ${redHatDisplay.variable}`} style={{ colorScheme: 'light' }}>
       <body className="antialiased bg-white text-[#0b192c]">{children}</body>
     </html>
   );
