@@ -90,24 +90,24 @@ export default function HeroSection() {
           </div>
 
           {/* Nav Links — centered */}
-          <div className="hidden items-center justify-center gap-8 text-[15px] md:flex lg:gap-10">
+          <div className="hidden items-center justify-center gap-8 text-[15px] font-extrabold md:flex lg:gap-10">
             {navItems.map((item) => (
-              <div key={item.label} className="flex flex-col items-center">
+              <div key={item.label} className="group flex flex-col items-center">
                 <a
                   href={item.href}
-                  className={`transition-colors hover:text-[#0b192c] pb-1 ${item.href === "#top" ? "text-[#0b192c] font-semibold" : "text-[#0b192c]/60"}`}
+                  className={`transition-colors hover:text-[#0b192c] pb-1 font-extrabold ${item.href === "#top" ? "text-[#0b192c]" : "text-[#0b192c]/60"}`}
                 >
                   {item.label}
                 </a>
-                {item.href === "#top" && (
-                  <div className="w-5 h-[3px] bg-[#7ed7ff] rounded-full -mt-0.5"></div>
-                )}
+                <div
+                  className={`w-5 h-[3px] bg-[#1B17FF] rounded-full -mt-0.5 transition-transform duration-200 origin-left ${item.href === "#top" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}`}
+                ></div>
               </div>
             ))}
           </div>
 
           {/* Right Button */}
-          <div className="ml-auto hidden items-center justify-end text-[13px] font-semibold md:flex">
+          <div className="ml-auto hidden items-center justify-end text-[13px] font-extrabold md:flex">
             <a
               href="https://app.xentro.in"
               target="_blank"
@@ -140,7 +140,7 @@ export default function HeroSection() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`transition-colors hover:text-[#0b192c] text-[16px] ${item.href === "#top" ? "text-[#0b192c] font-semibold" : "text-[#0b192c]/60"}`}
+                className={`transition-colors hover:text-[#0b192c] text-[16px] font-bold ${item.href === "#top" ? "text-[#0b192c] font-extrabold" : "text-[#0b192c]/60"}`}
               >
                 {item.label}
               </a>
@@ -150,7 +150,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-[#1B17FF] text-white px-8 py-3 hover:bg-[#1B17FF]/85 transition-colors rounded-lg text-[15px] font-semibold mt-2 w-[80%] text-center"
+              className="bg-[#1B17FF] text-white px-8 py-3 hover:bg-[#1B17FF]/85 transition-colors rounded-lg text-[15px] font-extrabold mt-2 w-[80%] text-center"
             >
               Join Now
             </a>
