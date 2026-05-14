@@ -56,7 +56,7 @@ export default function FooterCTA() {
         {/*
         <div className="mt-9 flex w-full max-w-[520px] items-center justify-center gap-3">
           <a
-            href="https://app.xentro.in"
+            href="https://app.xentro.in/join"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-shrink-0 cursor-pointer rounded-full bg-white px-9 py-3.5 text-[1.05rem] font-semibold text-[#1B17FF] shadow-md transition-all hover:bg-white/90 hover:shadow-[0_4px_20px_rgba(0,0,0,0.25)] active:scale-95"

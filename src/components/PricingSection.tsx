@@ -33,7 +33,7 @@ const PLANS: Plan[] = [
   {
     name: "Startups",
     subtitle: "For early-stage founders\nready to build & grow.",
-    price: "799",
+    price: "599",
     period: "/month",
     features: [
       "Startup profile & dashboard",
@@ -46,7 +46,7 @@ const PLANS: Plan[] = [
   {
     name: "Mentors",
     subtitle: "For experienced founders\n& industry experts.",
-    price: "1,299",
+    price: "1,499",
     period: "/month",
     features: [
       "Mentor dashboard",
@@ -61,7 +61,7 @@ const PLANS: Plan[] = [
   {
     name: "Investors",
     subtitle: "For angels & micro-VCs\nscouting early talent.",
-    price: "3,500",
+    price: "7,500",
     period: "/month",
     features: [
       "Deal flow pipeline",
@@ -243,7 +243,6 @@ export default function PricingSection() {
               }}
               className="group relative"
             >
-
               <article
                 className={`relative flex h-full flex-col rounded-2xl p-8 transition-transform duration-300 group-hover:-translate-y-2 ${
                   plan.highlight ? "bg-[#f1f3f8]" : "bg-[#f1f3f8]"
@@ -274,7 +273,7 @@ export default function PricingSection() {
                 </ul>
 
                 <a
-                  href="https://app.xentro.in"
+                  href="https://app.xentro.in/join"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${headingFont.className} inline-flex items-center justify-center gap-2 rounded-full bg-[#080c2f] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#0e1446]`}
@@ -315,7 +314,7 @@ export default function PricingSection() {
               <span className={`${bodyFont.className} ml-1 text-base font-medium text-white/58`}>for pricing</span>
             </div>
             <a
-              href="https://app.xentro.in"
+              href="https://app.xentro.in/join"
               target="_blank"
               rel="noopener noreferrer"
               className={`${headingFont.className} inline-flex items-center gap-2 rounded-full bg-[#f7f8fb] px-6 py-3 text-sm font-semibold text-[#0a0d30] transition-all duration-300 hover:bg-white`}

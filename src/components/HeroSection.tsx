@@ -109,7 +109,7 @@ export default function HeroSection() {
           {/* Right Button */}
           <div className="ml-auto hidden items-center justify-end text-[13px] font-extrabold md:flex">
             <a
-              href="https://app.xentro.in"
+              href="https://app.xentro.in/join"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg bg-[#1B17FF] px-6 py-2.5 text-white transition-colors hover:bg-[#1B17FF]/85"
@@ -146,7 +146,7 @@ export default function HeroSection() {
               </a>
             ))}
             <a
-              href="https://app.xentro.in"
+              href="https://app.xentro.in/join"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}

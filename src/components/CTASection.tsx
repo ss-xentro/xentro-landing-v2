@@ -26,7 +26,7 @@ export default function CTASection() {
         {/* Buttons */}
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
           <a
-            href="https://app.xentro.in"
+            href="https://app.xentro.in/join"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#1B17FF] px-8 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-[#1B17FF]/90 sm:w-auto"

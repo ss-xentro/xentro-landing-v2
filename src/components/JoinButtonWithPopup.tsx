@@ -5,7 +5,7 @@ export function JoinButtonWithPopup({ variant = "dark" }: { variant?: "dark" | "
 
   return (
     <a
-      href="https://app.xentro.in"
+      href="https://app.xentro.in/join"
       target="_blank"
       rel="noopener noreferrer"
       className={buttonClass}
