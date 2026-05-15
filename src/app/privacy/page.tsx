@@ -429,7 +429,7 @@ export default function PrivacyPage() {
       style={{ fontFamily: "var(--font-inter)" }}
     >
       {/* ── Navbar ── */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-black/5 bg-white/95 px-6 py-4 backdrop-blur-sm md:px-10">
+      <nav className="sticky top-0 z-50 flex items-center justify-between border-b border-black/5 bg-white/95 px-6 py-2.5 backdrop-blur-sm md:px-10">
         <Link href="/">
           <Image
             src="/xentro-logo-no%20bg%20black%20text.svg"
@@ -437,7 +437,7 @@ export default function PrivacyPage() {
             width={420}
             height={168}
             priority
-            className="h-14 w-auto sm:h-16"
+            className="h-11 w-auto sm:h-12"
           />
         </Link>
         <JoinButtonWithPopup />

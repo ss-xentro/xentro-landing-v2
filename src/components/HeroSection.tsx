@@ -76,21 +76,21 @@ export default function HeroSection() {
       <div id="top" className="bg-white text-[#0b192c] pt-4 md:pt-6 pb-14 md:pb-16 relative overflow-hidden">
 
         {/* ── Navbar ── */}
-        <nav className={`fixed top-0 inset-x-0 z-50 flex items-center px-6 py-3 md:grid md:grid-cols-[auto_1fr_auto] md:items-center md:px-8 lg:px-10 bg-white/95 backdrop-blur-sm border-b border-black/5 transition-transform duration-300 ${isNavVisible ? "translate-y-0" : "-translate-y-full"}`}>
+        <nav className={`fixed top-0 inset-x-0 z-50 flex items-center px-5 py-2 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:px-8 lg:px-10 bg-white/95 backdrop-blur-sm border-b border-black/5 transition-transform duration-300 ${isNavVisible ? "translate-y-0" : "-translate-y-full"}`}>
           {/* Logo — left column */}
-          <div className="flex shrink-0 items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3 md:col-start-1 md:justify-self-start">
             <Image
               src="/xentro-logo-no%20bg%20black%20text.svg"
               alt="XENTRO"
               width={420}
               height={168}
               priority
-              className="h-12 w-auto sm:h-16 lg:h-18"
+              className="h-10 w-auto sm:h-12 lg:h-14"
             />
           </div>
 
           {/* Nav Links — centered */}
-          <div className="hidden items-center justify-center gap-8 text-[15px] font-extrabold md:flex lg:gap-10">
+          <div className="hidden items-center justify-center gap-8 text-[15px] font-extrabold md:col-start-2 md:flex md:justify-self-center lg:gap-10">
             {navItems.map((item) => (
               <div key={item.label} className="group flex flex-col items-center">
                 <a
@@ -107,12 +107,12 @@ export default function HeroSection() {
           </div>
 
           {/* Right Button */}
-          <div className="ml-auto hidden items-center justify-end text-[13px] font-extrabold md:flex">
+          <div className="hidden items-center justify-end text-[13px] font-extrabold md:col-start-3 md:flex md:justify-self-end">
             <a
               href="https://app.xentro.in/join"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg bg-[#1B17FF] px-6 py-2.5 text-white transition-colors hover:bg-[#1B17FF]/85"
+              className="rounded-lg bg-[#1B17FF] px-4 py-2 text-[12px] text-white transition-colors hover:bg-[#1B17FF]/85"
             >
               Join Now
             </a>
@@ -150,7 +150,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-[#1B17FF] text-white px-8 py-3 hover:bg-[#1B17FF]/85 transition-colors rounded-lg text-[15px] font-extrabold mt-2 w-[80%] text-center"
+              className="bg-[#1B17FF] text-white px-7 py-2.5 hover:bg-[#1B17FF]/85 transition-colors rounded-lg text-[14px] font-extrabold mt-2 w-[80%] text-center"
             >
               Join Now
             </a>
